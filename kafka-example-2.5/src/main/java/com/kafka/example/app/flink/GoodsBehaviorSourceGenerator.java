@@ -1,4 +1,4 @@
-package com.kafka.example.example.producer;
+package com.kafka.example.app.flink;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,7 +18,7 @@ import java.util.Properties;
  * 自动发送数据
  * Created by wy on 2020/10/18.
  */
-public class WeiBoUserBehaviorSourceGenerator {
+public class GoodsBehaviorSourceGenerator {
     private static final Gson gson = new GsonBuilder().create();
     // 每秒1000条
     private static final long SPEED = 1;
@@ -52,7 +52,7 @@ public class WeiBoUserBehaviorSourceGenerator {
         }
         // 每条耗时多少毫秒 = 1s(1000000ns) / 1000
         long delay = 1000_000 / speed;
-        try (InputStream inputStream = WeiBoUserBehaviorSourceGenerator.class.getClassLoader().getResourceAsStream("behavior.txt")) {
+        try (InputStream inputStream = GoodsBehaviorSourceGenerator.class.getClassLoader().getResourceAsStream("behavior.txt")) {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             long start = System.nanoTime();
             int index = 1;

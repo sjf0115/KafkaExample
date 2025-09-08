@@ -1,4 +1,4 @@
-package com.kafka.example.example.producer;
+package com.kafka.example.app.flink;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

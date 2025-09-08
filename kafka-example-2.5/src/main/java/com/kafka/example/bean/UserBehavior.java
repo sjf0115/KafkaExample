@@ -1,4 +1,4 @@
-package com.common.example.bean;
+package com.kafka.example.bean;
 
 import com.google.gson.annotations.SerializedName;
 

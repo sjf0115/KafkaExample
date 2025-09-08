@@ -1,4 +1,4 @@
-package com.kafka.example.producer;
+package com.kafka.example.example.producer;
 
 import com.google.common.collect.Lists;
 import com.kafka.example.utils.SendUtil;

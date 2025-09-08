@@ -1,6 +1,6 @@
-package com.kafka.example.producer;
+package com.kafka.example.example.producer;
 
-import com.kafka.example.consumer.AsyncSendCallback;
+import com.kafka.example.example.consumer.AsyncSendCallback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;

@@ -21,8 +21,8 @@ import java.util.Properties;
  * 公众号：大数据生态
  * 日期：2022/5/3 下午10:16
  */
-public class ShopSalesSimpleProducer {
-    private static final Logger LOG = LoggerFactory.getLogger(ShopSalesSimpleProducer.class);
+public class ShopSalesSourceGenerator {
+    private static final Logger LOG = LoggerFactory.getLogger(ShopSalesSourceGenerator.class);
     private static final Gson gson = new GsonBuilder().create();
     private static final String TOPIC = "shop_sales";
     private static final Long SLEEP_TIME = 5*1000L;

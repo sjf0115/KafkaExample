@@ -1,9 +1,9 @@
-package com.kafka.example.producer;
+package com.kafka.example.example.producer;
 
-import com.common.example.bean.LoginUser;
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.kafka.example.bean.LoginUser;
 import com.kafka.example.utils.SendUtil;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;

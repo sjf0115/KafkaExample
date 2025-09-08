@@ -1,4 +1,4 @@
-package com.common.example.bean;
+package com.kafka.example.bean;
 
 /**
  * 功能：微博用户行为

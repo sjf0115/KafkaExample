@@ -1,4 +1,4 @@
-package com.common.example.bean;
+package com.kafka.example.bean;
 /**
  * 功能：WordCount POJO
  * 作者：SmartSi
