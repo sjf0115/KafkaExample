@@ -1,4 +1,4 @@
-package com.kafka.example.example.producer;
+package com.kafka.example.app.flink;
 
 import com.google.common.collect.Lists;
 import com.google.gson.Gson;
@@ -13,19 +13,18 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * 功能：淘宝用户行为发送 Kafka 简单发送
+ * 功能：淘宝用户行为发送 用于EMIT策略验证
  * 作者：SmartSi
- * 博客：http://smartsi.club/
+ * 博客：https://smartsi.blog.csdn.net/
  * 公众号：大数据生态
  * 日期：2022/5/3 下午10:16
  */
 public class UserBehaviorSimpleProducer {
     private static final Gson gson = new GsonBuilder().create();
-    private static final String TOPIC = "user_behavior";
     private static final Long SLEEP_TIME = 5*1000L;
     private static final Long SESSION_SLEEP_TIME = 6*1000L;
 
-    public static void send(boolean isSessionWindow) {
+    public static void send(String topic, boolean isSessionWindow) {
         // 配置
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
@@ -70,7 +69,7 @@ public class UserBehaviorSimpleProducer {
             String value = gson.toJson(userBehavior);
 
             // 发送
-            ProducerRecord<String, String> record = new ProducerRecord<>(TOPIC, key, value);
+            ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
             producer.send(record, new AsyncSendCallback());
             try {
                 // SessionWindow 场景下 第二个和第6个数据记录后增加1s休眠时间
@@ -93,7 +92,10 @@ public class UserBehaviorSimpleProducer {
         // 用于会话窗口
         //send(true);
         // 用于滚动,滑动窗口
-        send(false);
+        //send("", false);
+
+        // 场景1：EMIT 策略验证
+        send("user_behavior_emit", false);
     }
 }
 
