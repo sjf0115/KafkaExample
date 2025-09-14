@@ -8,6 +8,8 @@ import com.kafka.example.example.consumer.AsyncSendCallback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Properties;
@@ -20,6 +22,7 @@ import java.util.Properties;
  * 日期：2022/5/3 下午10:16
  */
 public class UserBehaviorSimpleProducer {
+    private static final Logger LOG = LoggerFactory.getLogger(UserBehaviorSimpleProducer.class);
     private static final Gson gson = new GsonBuilder().create();
     private static final Long SLEEP_TIME = 5*1000L;
     private static final Long SESSION_SLEEP_TIME = 6*1000L;
@@ -71,6 +74,8 @@ public class UserBehaviorSimpleProducer {
             // 发送
             ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
             producer.send(record, new AsyncSendCallback());
+            LOG.info("Record: {}", value);
+
             try {
                 // SessionWindow 场景下 第二个和第6个数据记录后增加1s休眠时间
                 if(isSessionWindow && (index == 2 || index == 6)) {
