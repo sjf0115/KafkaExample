@@ -119,7 +119,7 @@ public class ShopSalesSourceGenerator {
         send(elements);
     }
 
-    // 用于验证 RowsOverWindow
+    // 用于验证 RowsOverWindow/TopN
     public static void send4() {
         List<String> elements = Lists.newArrayList(
                 "1001,图书,40,1665360300000", // 2022-10-10 08:05:00
