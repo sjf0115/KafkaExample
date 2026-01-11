@@ -9,9 +9,9 @@ import java.util.Arrays;
 import java.util.Properties;
 
 /**
- * Kafka 消费者 示例
+ * DataX 同步到 Kafka 消费示例
  */
-public class KafkaConsumeExample {
+public class DataXUserConsumeExample {
     public static void main(String[] args) {
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "localhost:9092");
@@ -21,7 +21,7 @@ public class KafkaConsumeExample {
         props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList("test"));
+        consumer.subscribe(Arrays.asList("user"));
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
             for (ConsumerRecord<String, String> record : records) {
